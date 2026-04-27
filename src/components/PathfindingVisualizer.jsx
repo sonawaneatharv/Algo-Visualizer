@@ -320,6 +320,22 @@ const PathfindingVisualizer = () => {
       case 'random':
         nodesToAnimate = randomMaze(gridCopy);
         break;
+      case 'recursive':
+        nodesToAnimate = recursiveDivisionMaze(gridCopy, startNodePos, finishNodePos, 'normal');
+        break;
+      case 'recursiveVertical':
+        nodesToAnimate = recursiveDivisionMaze(gridCopy, startNodePos, finishNodePos, 'vertical');
+        break;
+      case 'recursiveHorizontal':
+        nodesToAnimate = recursiveDivisionMaze(gridCopy, startNodePos, finishNodePos, 'horizontal');
+        break;
+      case 'stair':
+        nodesToAnimate = simpleStairPattern(gridCopy);
+        break;
+      default:
+        break;
+    }
+
     animateMaze(nodesToAnimate, 'wall');
   };
 
